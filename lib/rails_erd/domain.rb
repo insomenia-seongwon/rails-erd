@@ -51,7 +51,7 @@ module RailsERD
     def name
       return unless defined?(Rails) && Rails.application
 
-      if Rails.application.class.respond_to?(:module_parent)
+      if Rails::VERSION::MAJOR >= 6
         Rails.application.class.module_parent.name
       else
         Rails.application.class.parent.name
